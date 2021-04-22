@@ -1,8 +1,8 @@
 {
-  "name": "@digitalbazaar/isomorphic-js-lib-template",
+  "name": "@digitalbazaar/core-document-loader",
   "version": "0.0.1",
-  "description": "",
-  "homepage": "https://github.com/digitalbazaar/isomorphic-js-lib-template",
+  "description": "A JSON-LD documentLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).",
+  "homepage": "https://github.com/digitalbazaar/core-document-loader",
   "author": {
     "name": "Digital Bazaar, Inc.",
     "email": "support@digitalbazaar.com",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbazaar/isomorphic-js-lib-template"
+    "url": "https://github.com/digitalbazaar/core-document-loader"
   },
   "bugs": {
-    "url": "https://github.com/digitalbazaar/isomorphic-js-lib-template/issues",
+    "url": "https://github.com/digitalbazaar/core-document-loader/issues",
     "email": "support@digitalbazaar.com"
   },
   "license": "BSD-3-Clause",
@@ -23,7 +23,13 @@
   "main": "lib/index.js",
   "module": "lib/main.js",
   "dependencies": {
-    "esm": "^3.2.25"
+    "@digitalbazaar/did-method-key": "^1.0.0",
+    "credentials-context": "^1.0.0",
+    "did-context": "^3.0.1",
+    "ed25519-signature-2020-context": "^1.0.1",
+    "esm": "^3.2.25",
+    "jsonld-document-loader": "^1.1.0",
+    "x25519-key-agreement-2020-context": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -33,6 +39,7 @@
     "@babel/runtime": "^7.13.9",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.3",
+    "cit-context": "^2.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.21.0",
     "eslint-config-digitalbazaar": "^2.6.1",
