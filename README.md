@@ -1,10 +1,10 @@
-# Example Isomorphic JS Lib Template _(@digitalbazaar/isomorphic-js-lib-template)_
+# Core JSON-LD documentLoader _(@digitalbazaar/core-document-loader)_
 
-[![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/isomorphic-js-lib-template/Node.js%20CI)](https://github.com/digitalbazaar/isomorphic-js-lib-template/actions?query=workflow%3A%22Node.js+CI%22)
-[![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/isomorphic-js-lib-template)](https://codecov.io/gh/digitalbazaar/isomorphic-js-lib-template)
-[![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/isomorphic-js-lib-template.svg)](https://npm.im/@digitalbazaar/isomorphic-js-lib-template)
+[![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/core-document-loader/Node.js%20CI)](https://github.com/digitalbazaar/core-document-loader/actions?query=workflow%3A%22Node.js+CI%22)
+[![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/core-document-loader)](https://codecov.io/gh/digitalbazaar/core-document-loader)
+[![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/core-document-loader.svg)](https://npm.im/@digitalbazaar/core-document-loader)
 
-> A template skeleton repo for (non-Bedrock) JS libraries that run in Node.js and in the browser.
+> A JSON-LD documentLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 ## Background
 
-TBD
+This is useful for unit tests, in Node.js and the browser.
 
 ## Security
 
@@ -33,7 +33,7 @@ TBD
 To install via NPM:
 
 ```
-npm install @digitalbazaar/isomorphic-js-lib-template
+npm install @digitalbazaar/core-document-loader
 ```
 
 ### Development
@@ -41,8 +41,8 @@ npm install @digitalbazaar/isomorphic-js-lib-template
 To install locally (for development):
 
 ```
-git clone https://github.com/digitalbazaar/isomorphic-js-lib-template.git
-cd isomorphic-js-lib-template
+git clone https://github.com/digitalbazaar/core-document-loader.git
+cd core-document-loader
 npm install
 ```
 
