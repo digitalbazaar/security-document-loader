@@ -23,6 +23,10 @@ It includes several core contexts and DID resolvers that you might want when
 testing applications involving Verifiable Credentials, `did:key` or Veres One
 DIDs, as well as Ed25519 signing and verifying.
 
+Note: This library plays a similar role to `bedrock-security-context`, but is
+intended for not just Bedrock style applications, but also for isomorphic libs,
+etc.
+
 Included contexts:
 
 * `https://www.w3.org/ns/did/v1` DID Core Context v1
@@ -30,6 +34,10 @@ Included contexts:
 * `https://www.w3.org/2018/credentials/v1` Verifiable Credentials v1
 * `https://w3id.org/security/suites/ed25519-2020/v1` Ed25519Signature2020 Crypto Suite
 * `https://w3id.org/security/suites/x25519-2020/v1` X25519VerificationKey2020 Crypto Suite
+
+Included DID Method drivers:
+
+* `did:key` (via [`@digitalbazaar/did-method-key`](https://github.com/digitalbazaar/did-method-key-js))
 
 Other required contexts and did drivers can easily be added (see Usage section
 below).
