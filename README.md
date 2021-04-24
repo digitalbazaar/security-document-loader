@@ -1,10 +1,10 @@
-# Core JSON-LD documentLoader _(@digitalbazaar/core-document-loader)_
+# Core JSON-LD coreLoader _(@digitalbazaar/core-document-loader)_
 
 [![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/core-document-loader/Node.js%20CI)](https://github.com/digitalbazaar/core-document-loader/actions?query=workflow%3A%22Node.js+CI%22)
 [![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/core-document-loader)](https://codecov.io/gh/digitalbazaar/core-document-loader)
 [![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/core-document-loader.svg)](https://npm.im/@digitalbazaar/core-document-loader)
 
-> A JSON-LD documentLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).
+> A JSON-LD coreLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).
 
 ## Table of Contents
 
@@ -19,6 +19,20 @@
 ## Background
 
 This is useful for unit tests, in Node.js and the browser.
+It includes several core contexts and DID resolvers that you might want when 
+testing applications involving Verifiable Credentials, `did:key` or Veres One
+DIDs, as well as Ed25519 signing and verifying.
+
+Included contexts:
+
+* `https://www.w3.org/ns/did/v1` DID Core Context v1
+* `https://w3id.org/veres-one/v1` Veres One DID Method Context v1
+* `https://www.w3.org/2018/credentials/v1` Verifiable Credentials v1
+* `https://w3id.org/security/suites/ed25519-2020/v1` Ed25519Signature2020 Crypto Suite
+* `https://w3id.org/security/suites/x25519-2020/v1` X25519VerificationKey2020 Crypto Suite
+
+Other required contexts and did drivers can easily be added (see Usage section
+below).
 
 ## Security
 
@@ -33,7 +47,7 @@ TBD
 To install via NPM:
 
 ```
-npm install @digitalbazaar/core-document-loader
+npm install --save @digitalbazaar/core-document-loader
 ```
 
 ### Development
@@ -48,7 +62,24 @@ npm install
 
 ## Usage
 
-TBD
+The core document loader is easily extensible. For example, to add more contexts:
+
+```js
+import {coreLoader} from '@digitalbazaar/core-document-loader';
+
+import secCtx from '@digitalbazaar/security-context';
+import webkmsCtx from 'webkms-context';
+import zcapCtx from 'zcap-context';
+
+coreLoader.addStatic(
+  secCtx.SECURITY_CONTEXT_V2_URL,
+  secCtx.contexts.get(secCtx.SECURITY_CONTEXT_V2_URL)
+);
+coreLoader.addStatic(webkmsCtx.CONTEXT_URL, webkmsCtx.CONTEXT);
+coreLoader.addStatic(zcapCtx.CONTEXT_URL, zcapCtx.CONTEXT);
+
+const documentLoader = coreLoader.build();
+```
 
 ## Contribute
 
