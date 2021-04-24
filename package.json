@@ -24,11 +24,12 @@
   "module": "lib/main.js",
   "dependencies": {
     "@digitalbazaar/did-method-key": "^1.0.0",
+    "@veres-one/veres-one-context": "veres-one/veres-one-context#v12.x",
     "credentials-context": "^1.0.0",
     "did-context": "^3.0.1",
     "ed25519-signature-2020-context": "^1.0.1",
     "esm": "^3.2.25",
-    "jsonld-document-loader": "^1.1.0",
+    "jsonld-document-loader": "digitalbazaar/jsonld-document-loader#rc-0.0.1",
     "x25519-key-agreement-2020-context": "^1.0.0"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@babel/plugin-transform-runtime": "^7.13.9",
     "@babel/preset-env": "^7.13.9",
     "@babel/runtime": "^7.13.9",
+    "@digitalbazaar/security-context": "^1.0.0",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.3",
     "cit-context": "^2.0.0",
