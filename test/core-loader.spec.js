@@ -15,7 +15,7 @@ describe('documentLoader', () => {
 
   it('should fetch contexts', async () => {
     const url = 'https://www.w3.org/ns/did/v1';
-    const documentLoader = coreLoader.build();
+    const documentLoader = coreLoader().build();
     const {document: contextDoc} = await documentLoader(url);
 
     expect(contextDoc['@context'].id).to.equal('@id');
@@ -25,7 +25,7 @@ describe('documentLoader', () => {
     const keyId = 'did:key:z6MkuBLrjSGt1PPADAvuv6rmvj4FfSAfffJotC6K8ZEorYmv#' +
       'z6MkuBLrjSGt1PPADAvuv6rmvj4FfSAfffJotC6K8ZEorYmv';
 
-    const documentLoader = coreLoader.build();
+    const documentLoader = coreLoader().build();
     const {document} = await documentLoader(keyId);
     expect(document).to.eql(
       {
@@ -42,19 +42,21 @@ describe('documentLoader', () => {
   it('should be extensible', async () => {
     let error;
     let document;
+    let result;
+    const loader = coreLoader();
     try {
       // Attempt to fetch the security/v2 context
-      ({document} = await coreLoader.documentLoader(
+      result = await loader.documentLoader(
         secCtx.SECURITY_CONTEXT_V2_URL
-      ));
+      );
     } catch(e) {
       error = e;
     }
 
     expect(error).to.exist;
-    expect(document).to.not.exist;
+    expect(result).to.not.exist;
 
-    coreLoader.addStatic(
+    loader.addStatic(
       secCtx.SECURITY_CONTEXT_V2_URL,
       secCtx.contexts.get(secCtx.SECURITY_CONTEXT_V2_URL)
     );
@@ -62,7 +64,7 @@ describe('documentLoader', () => {
     error = null;
     try {
       // Attempt to fetch again, after installing support
-      ({document} = await coreLoader.documentLoader(
+      ({document} = await loader.documentLoader(
         secCtx.SECURITY_CONTEXT_V2_URL
       ));
     } catch(e) {

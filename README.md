@@ -79,14 +79,15 @@ import secCtx from '@digitalbazaar/security-context';
 import webkmsCtx from 'webkms-context';
 import zcapCtx from 'zcap-context';
 
-coreLoader.addStatic(
+const loader = coreLoader()
+loader.addStatic(
   secCtx.SECURITY_CONTEXT_V2_URL,
   secCtx.contexts.get(secCtx.SECURITY_CONTEXT_V2_URL)
 );
-coreLoader.addStatic(webkmsCtx.CONTEXT_URL, webkmsCtx.CONTEXT);
-coreLoader.addStatic(zcapCtx.CONTEXT_URL, zcapCtx.CONTEXT);
+loader.addStatic(webkmsCtx.CONTEXT_URL, webkmsCtx.CONTEXT);
+loader.addStatic(zcapCtx.CONTEXT_URL, zcapCtx.CONTEXT);
 
-const documentLoader = coreLoader.build();
+const documentLoader = loader.build();
 ```
 
 ## Contribute
