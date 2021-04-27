@@ -1,8 +1,8 @@
 {
-  "name": "@digitalbazaar/core-document-loader",
+  "name": "@digitalbazaar/security-document-loader",
   "version": "0.0.1",
   "description": "A JSON-LD documentLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).",
-  "homepage": "https://github.com/digitalbazaar/core-document-loader",
+  "homepage": "https://github.com/digitalbazaar/security-document-loader",
   "author": {
     "name": "Digital Bazaar, Inc.",
     "email": "support@digitalbazaar.com",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbazaar/core-document-loader"
+    "url": "https://github.com/digitalbazaar/security-document-loader"
   },
   "bugs": {
-    "url": "https://github.com/digitalbazaar/core-document-loader/issues",
+    "url": "https://github.com/digitalbazaar/security-document-loader/issues",
     "email": "support@digitalbazaar.com"
   },
   "license": "BSD-3-Clause",
@@ -23,13 +23,14 @@
   "main": "lib/index.js",
   "module": "lib/main.js",
   "dependencies": {
+    "@digitalbazaar/did-io": "^1.0.0",
     "@digitalbazaar/did-method-key": "^1.0.0",
     "@veres-one/veres-one-context": "veres-one/veres-one-context#v12.x",
     "credentials-context": "^1.0.0",
     "did-context": "^3.0.1",
     "ed25519-signature-2020-context": "^1.0.1",
     "esm": "^3.2.25",
-    "jsonld-document-loader": "digitalbazaar/jsonld-document-loader#rc-0.0.1",
+    "jsonld-document-loader": "digitalbazaar/jsonld-document-loader#add-resolver",
     "x25519-key-agreement-2020-context": "^1.0.0"
   },
   "devDependencies": {

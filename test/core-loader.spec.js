@@ -6,16 +6,16 @@ chai.should();
 const {expect} = chai;
 
 import secCtx from '@digitalbazaar/security-context';
-import {coreLoader} from '../lib/main.js';
+import {securityLoader} from '../lib/main.js';
 
 describe('documentLoader', () => {
   it('should exist', async () => {
-    expect(coreLoader).to.exist;
+    expect(securityLoader).to.exist;
   });
 
   it('should fetch contexts', async () => {
     const url = 'https://www.w3.org/ns/did/v1';
-    const documentLoader = coreLoader().build();
+    const documentLoader = securityLoader().build();
     const {document: contextDoc} = await documentLoader(url);
 
     expect(contextDoc['@context'].id).to.equal('@id');
@@ -25,7 +25,7 @@ describe('documentLoader', () => {
     const keyId = 'did:key:z6MkuBLrjSGt1PPADAvuv6rmvj4FfSAfffJotC6K8ZEorYmv#' +
       'z6MkuBLrjSGt1PPADAvuv6rmvj4FfSAfffJotC6K8ZEorYmv';
 
-    const documentLoader = coreLoader().build();
+    const documentLoader = securityLoader().build();
     const {document} = await documentLoader(keyId);
     expect(document).to.eql(
       {
@@ -43,7 +43,7 @@ describe('documentLoader', () => {
     let error;
     let document;
     let result;
-    const loader = coreLoader();
+    const loader = securityLoader();
     try {
       // Attempt to fetch the security/v2 context
       result = await loader.documentLoader(
