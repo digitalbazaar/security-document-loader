@@ -1,4 +1,4 @@
-# core-document-loader Changelog
+# security-document-loader Changelog
 
 ## 1.0.0 - TBD
 

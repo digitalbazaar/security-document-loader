@@ -1,10 +1,10 @@
-# Core JSON-LD coreLoader _(@digitalbazaar/core-document-loader)_
+# Core JSON-LD securityLoader _(@digitalbazaar/security-document-loader)_
 
-[![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/core-document-loader/Node.js%20CI)](https://github.com/digitalbazaar/core-document-loader/actions?query=workflow%3A%22Node.js+CI%22)
-[![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/core-document-loader)](https://codecov.io/gh/digitalbazaar/core-document-loader)
-[![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/core-document-loader.svg)](https://npm.im/@digitalbazaar/core-document-loader)
+[![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/security-document-loader/Node.js%20CI)](https://github.com/digitalbazaar/security-document-loader/actions?query=workflow%3A%22Node.js+CI%22)
+[![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/security-document-loader)](https://codecov.io/gh/digitalbazaar/security-document-loader)
+[![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/security-document-loader.svg)](https://npm.im/@digitalbazaar/security-document-loader)
 
-> A JSON-LD coreLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).
+> A JSON-LD documentLoader library pre-loaded with commonly used security contexts (suites, VC, DIDs).
 
 ## Table of Contents
 
@@ -55,7 +55,7 @@ TBD
 To install via NPM:
 
 ```
-npm install --save @digitalbazaar/core-document-loader
+npm install --save @digitalbazaar/security-document-loader
 ```
 
 ### Development
@@ -63,8 +63,8 @@ npm install --save @digitalbazaar/core-document-loader
 To install locally (for development):
 
 ```
-git clone https://github.com/digitalbazaar/core-document-loader.git
-cd core-document-loader
+git clone https://github.com/digitalbazaar/security-document-loader.git
+cd security-document-loader
 npm install
 ```
 
@@ -73,13 +73,13 @@ npm install
 The core document loader is easily extensible. For example, to add more contexts:
 
 ```js
-import {coreLoader} from '@digitalbazaar/core-document-loader';
+import {securityLoader} from '@digitalbazaar/security-document-loader';
 
 import secCtx from '@digitalbazaar/security-context';
 import webkmsCtx from 'webkms-context';
 import zcapCtx from 'zcap-context';
 
-const loader = coreLoader()
+const loader = securityLoader()
 loader.addStatic(
   secCtx.SECURITY_CONTEXT_V2_URL,
   secCtx.contexts.get(secCtx.SECURITY_CONTEXT_V2_URL)
