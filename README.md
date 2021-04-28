@@ -90,6 +90,21 @@ loader.addStatic(zcapCtx.CONTEXT_URL, zcapCtx.CONTEXT);
 const documentLoader = loader.build();
 ```
 
+### Adding did resolvers
+
+By default, `securityLoader` uses `did-io`'s CachedResolver as a harness for
+multiple DID method drivers, and supports the `did-method-key` driver.
+
+To add another did method driver to it:
+
+```js
+
+import {securityLoader} from '@digitalbazaar/security-document-loader';
+const loader = securityLoader()
+
+loader.protocolHandlers.get('did').use(didMethodDriver);
+```
+
 ## Contribute
 
 See [the contribute file](https://github.com/digitalbazaar/bedrock/blob/master/CONTRIBUTING.md)!
