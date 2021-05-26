@@ -7,10 +7,29 @@ const {expect} = chai;
 
 import secCtx from '@digitalbazaar/security-context';
 import {securityLoader} from '../lib/main.js';
+import veresOneCtx from 'veres-one-context';
 
 describe('documentLoader', () => {
   it('should exist', async () => {
     expect(securityLoader).to.exist;
+  });
+
+  it('sets up veres one context properly', async () => {
+    const {contexts, constants: contextConstants} = veresOneCtx;
+    for(const c in contextConstants) {
+      if(!c.includes('URL')) {
+        continue;
+      }
+      const documentLoader = securityLoader().build();
+      const contextUrl = contextConstants[c];
+
+      const result = await documentLoader(contextUrl);
+
+      expect(result).to.exist;
+      expect(result.document).to.exist;
+      result.document.should.be.an('object');
+      result.document.should.eql(contexts.get(contextUrl));
+    }
   });
 
   it('should fetch contexts', async () => {
@@ -76,4 +95,3 @@ describe('documentLoader', () => {
       .to.equal('sec:AesKeyWrappingKey2019');
   });
 });
-
