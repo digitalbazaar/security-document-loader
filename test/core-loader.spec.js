@@ -8,27 +8,40 @@ const {expect} = chai;
 import secCtx from '@digitalbazaar/security-context';
 import {securityLoader} from '../lib/main.js';
 import veresOneCtx from 'veres-one-context';
+import didContext from 'did-context';
+import ed25519 from 'ed25519-signature-2020-context';
+import x25519 from 'x25519-key-agreement-2020-context';
+import cred from 'credentials-context';
 
 describe('documentLoader', () => {
   it('should exist', async () => {
     expect(securityLoader).to.exist;
   });
 
-  it('sets up veres one context properly', async () => {
-    const {contexts, constants: contextConstants} = veresOneCtx;
-    for(const c in contextConstants) {
-      if(!c.includes('URL')) {
-        continue;
+  it('sets up contexts properly', async () => {
+    const testContexts = [
+      veresOneCtx,
+      didContext,
+      ed25519,
+      x25519,
+      cred
+    ];
+    for(const testContext of testContexts) {
+      const {contexts, constants: contextConstants} = testContext;
+      for(const c in contextConstants) {
+        if(!c.includes('URL')) {
+          continue;
+        }
+        const documentLoader = securityLoader().build();
+        const contextUrl = contextConstants[c];
+
+        const result = await documentLoader(contextUrl);
+
+        expect(result).to.exist;
+        expect(result.document).to.exist;
+        result.document.should.be.an('object');
+        result.document.should.eql(contexts.get(contextUrl));
       }
-      const documentLoader = securityLoader().build();
-      const contextUrl = contextConstants[c];
-
-      const result = await documentLoader(contextUrl);
-
-      expect(result).to.exist;
-      expect(result.document).to.exist;
-      result.document.should.be.an('object');
-      result.document.should.eql(contexts.get(contextUrl));
     }
   });
 
