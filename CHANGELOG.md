@@ -1,5 +1,10 @@
 # security-document-loader Changelog
 
+## 1.1.1 - 2021-08-xx
+
+### Fixed
+- Use fixed did-method-key driver.
+
 ## 1.1.0 - 2021-05-26
 
 ### Added
