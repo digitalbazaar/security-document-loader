@@ -1,5 +1,10 @@
 # security-document-loader Changelog
 
+## 2.0.0 - 2022-xx-xx
+
+### Changed
+- **BREAKING**: Update minimum Node.js to v14.
+
 ## 1.1.1 - 2021-08-19
 
 ### Fixed
