@@ -47,6 +47,7 @@
     "eslint": "^8.14.0",
     "eslint-config-digitalbazaar": "^3.0.0",
     "eslint-plugin-jsdoc": "^39.2.9",
+    "eslint-plugin-unicorn": "^42.0.0",
     "karma": "^6.3.19",
     "karma-babel-preprocessor": "^8.0.2",
     "karma-chai": "^0.1.0",
