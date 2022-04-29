@@ -6,7 +6,7 @@ chai.should();
 const {expect} = chai;
 
 import secCtx from '@digitalbazaar/security-context';
-import {securityLoader} from '../lib/main.js';
+import {securityLoader} from '../lib/index.js';
 import veresOneCtx from 'veres-one-context';
 import didContext from 'did-context';
 import ed25519 from 'ed25519-signature-2020-context';
