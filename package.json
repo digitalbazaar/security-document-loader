@@ -17,11 +17,16 @@
     "email": "support@digitalbazaar.com"
   },
   "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": "./lib/index.js",
+  "browser": {
+    "buffer": false,
+    "crypto": false,
+    "util": false
+  },
   "files": [
     "lib/*.js"
   ],
-  "type": "module",
-  "exports": "./lib/index.js",
   "dependencies": {
     "@digitalbazaar/did-io": "^2.0.0",
     "@digitalbazaar/did-method-key": "^3.0.0",
@@ -61,11 +66,6 @@
       "html",
       "text-summary"
     ]
-  },
-  "browser": {
-    "buffer": false,
-    "crypto": false,
-    "util": false
   },
   "engines": {
     "node": ">=14"
