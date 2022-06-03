@@ -1,6 +1,6 @@
 {
   "name": "@digitalbazaar/security-document-loader",
-  "version": "1.1.2-0",
+  "version": "2.0.0",
   "description": "A JSON-LD documentLoader library pre-loaded with core commonly used contexts (suites, VC, DIDs).",
   "homepage": "https://github.com/digitalbazaar/security-document-loader",
   "author": {
