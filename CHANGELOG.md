@@ -1,6 +1,6 @@
 # security-document-loader Changelog
 
-## 2.0.1 - 2024-07-11
+## 2.1.0 - 2024-07-xx
 
 ### Changed
 - Update module import style.
