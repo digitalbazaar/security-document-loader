@@ -1,7 +1,7 @@
 # Core JSON-LD securityLoader _(@digitalbazaar/security-document-loader)_
 
-[![Build status](https://img.shields.io/github/workflow/status/digitalbazaar/security-document-loader/Node.js%20CI)](https://github.com/digitalbazaar/security-document-loader/actions?query=workflow%3A%22Node.js+CI%22)
-[![Coverage status](https://img.shields.io/codecov/c/github/digitalbazaar/security-document-loader)](https://codecov.io/gh/digitalbazaar/security-document-loader)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/digitalbazaar/security-document-loader/main.yml)](https://github.com/digitalbazaar/security-document-loader/actions/workflows/main.yml)
+[![Coverage Status](https://img.shields.io/codecov/c/github/digitalbazaar/security-document-loader)](https://codecov.io/gh/digitalbazaar/security-document-loader)
 [![NPM Version](https://img.shields.io/npm/v/@digitalbazaar/security-document-loader.svg)](https://npm.im/@digitalbazaar/security-document-loader)
 
 > A JSON-LD documentLoader library pre-loaded with commonly used security contexts (suites, VC, DIDs).
