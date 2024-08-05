@@ -5,6 +5,12 @@ import chai from 'chai';
 chai.should();
 const {expect} = chai;
 
+import {contexts as didContexts} from 'did-context';
+import {contexts as ed25519Contexts} from 'ed25519-signature-2020-context';
+import {contexts as v1Contexts} from 'veres-one-context';
+import {contexts as vcContexts} from '@digitalbazaar/credentials-context';
+import {contexts as x25519Contexts} from 'x25519-key-agreement-2020-context';
+
 import * as secCtx from '@digitalbazaar/security-context';
 import {securityLoader} from '../lib/index.js';
 
@@ -15,14 +21,13 @@ describe('documentLoader', () => {
 
   it('sets up contexts properly', async () => {
     const testContexts = [
-      '@digitalbazaar/credentials-context',
-      'did-context',
-      'ed25519-signature-2020-context',
-      'veres-one-context',
-      'x25519-key-agreement-2020-context'
+      didContexts,
+      ed25519Contexts,
+      v1Contexts,
+      vcContexts,
+      x25519Contexts
     ];
-    for(const testContext of testContexts) {
-      const {contexts} = await import(testContext);
+    for(const contexts of testContexts) {
       for(const [contextUrl, context] of contexts) {
         //console.log('C1', c);
         const documentLoader = securityLoader().build();
