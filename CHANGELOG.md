@@ -4,6 +4,13 @@
 
 ### Changed
 - **BREAKING**: Require Node.js >=18.
+- Update dependencies.
+  - Switch from `credentials-context` to `@digitalbazaar/credentials-context`
+    for VC 2.0 support.
+  - `jsonld-document-loader@2.2.0`.
+  - Update minor, test, and dev dependencies.
+- Use newer testing style to ensure all context packages are checked.
+- Use `addDocuments` to simplify context loading.
 
 ## 2.1.0 - 2024-07-11
 

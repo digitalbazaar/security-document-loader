@@ -1,17 +1,12 @@
 /*!
- * Copyright (c) 2021 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2021-2024 Digital Bazaar, Inc. All rights reserved.
  */
 import chai from 'chai';
 chai.should();
 const {expect} = chai;
 
-import secCtx from '@digitalbazaar/security-context';
+import * as secCtx from '@digitalbazaar/security-context';
 import {securityLoader} from '../lib/index.js';
-import veresOneCtx from 'veres-one-context';
-import didContext from 'did-context';
-import ed25519 from 'ed25519-signature-2020-context';
-import x25519 from 'x25519-key-agreement-2020-context';
-import cred from 'credentials-context';
 
 describe('documentLoader', () => {
   it('should exist', async () => {
@@ -20,27 +15,24 @@ describe('documentLoader', () => {
 
   it('sets up contexts properly', async () => {
     const testContexts = [
-      veresOneCtx,
-      didContext,
-      ed25519,
-      x25519,
-      cred
+      '@digitalbazaar/credentials-context',
+      'did-context',
+      'ed25519-signature-2020-context',
+      'veres-one-context',
+      'x25519-key-agreement-2020-context'
     ];
     for(const testContext of testContexts) {
-      const {contexts, constants: contextConstants} = testContext;
-      for(const c in contextConstants) {
-        if(!c.includes('URL')) {
-          continue;
-        }
+      const {contexts} = await import(testContext);
+      for(const [contextUrl, context] of contexts) {
+        //console.log('C1', c);
         const documentLoader = securityLoader().build();
-        const contextUrl = contextConstants[c];
-
         const result = await documentLoader(contextUrl);
-
         expect(result).to.exist;
         expect(result.document).to.exist;
         result.document.should.be.an('object');
-        result.document.should.eql(contexts.get(contextUrl));
+        result.document.should.eql(context);
+        expect(result.tag).to.exist;
+        result.tag.should.eql('static');
       }
     }
   });
