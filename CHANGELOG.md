@@ -1,5 +1,10 @@
 # security-document-loader Changelog
 
+## 3.0.0 - 2024-08-xx
+
+### Changed
+- **BREAKING**: Require Node.js >=18.
+
 ## 2.1.0 - 2024-07-11
 
 ### Changed
