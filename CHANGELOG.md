@@ -1,5 +1,11 @@
 # security-document-loader Changelog
 
+## 3.0.1 - 2025-03-xx
+
+### Changed
+- Update dependencies.
+  - `@digitalbazaar/credentials-context@3.2.0`.
+
 ## 3.0.0 - 2024-08-05
 
 ### Changed
