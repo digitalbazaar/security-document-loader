@@ -1,6 +1,6 @@
 # security-document-loader Changelog
 
-## 3.1.0 - 2025-mm-dd
+## 3.1.0 - 2025-09-21
 
 ### Changed
 - Update dependencies:
