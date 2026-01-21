@@ -1,6 +1,6 @@
 # security-document-loader Changelog
 
-## 3.2.0 - 2026-mm-dd
+## 3.2.0 - 2026-01-21
 
 ### Added
 - Use `@digitalbazaar/did-io@2.1` in order to allow passing in a particular
