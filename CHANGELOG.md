@@ -1,5 +1,15 @@
 # security-document-loader Changelog
 
+## 3.2.0 - 2026-mm-dd
+
+### Added
+- Use `@digitalbazaar/did-io@2.1` in order to allow passing in a particular
+  LRU cache instance when creating a security document loader instance. Each
+  security loader instance will use its own `CachedResolver` to resolve
+  DIDs. The new `cache` parameter is optional, and if used, must specify
+  an `LruCache` instance from `@digitalbazaar/lru-memoize@4` or an instance
+  that includes, minimally, a compatible `memoize()` function.
+
 ## 3.1.0 - 2025-09-21
 
 ### Changed
