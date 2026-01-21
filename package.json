@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@digitalbazaar/credentials-context": "^3.2.0",
-    "@digitalbazaar/did-io": "^2.0.0",
+    "@digitalbazaar/did-io": "^2.1.0",
     "@digitalbazaar/did-method-key": "^5.3.0",
     "@digitalbazaar/ed25519-verification-key-2020": "^4.2.0",
     "did-context": "^3.1.1",
